@@ -1,9 +1,10 @@
 import Button from './Button.jsx';
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
-
-export default function ToDoList({ tasks,filter, onEditTask, onDeleteTask, onCompleteOrUncompleteTask }) {
+import { TodoContext } from '../store/todo-context.jsx';
+export default function ToDoList({  }) {
+  const {tasks,filter, editTask,deleteTask,completeOrUncompleteTask} = useContext(TodoContext);
   const [isEditing, setIsEditing] = useState(null); 
   const [editedTask, setEditedTask] = useState('');
 
@@ -13,16 +14,16 @@ export default function ToDoList({ tasks,filter, onEditTask, onDeleteTask, onCom
   }
 
   function handleSaveEdit(index) {
-    onEditTask(index, editedTask);
+    editTask(index, editedTask);
     setIsEditing(null);
   }
 
   function handleDeleteClick(index) {
-      onDeleteTask(index); 
+    deleteTask(index); 
   }
 
   function handleCheckboxChange(index) {
-    onCompleteOrUncompleteTask(index);
+    completeOrUncompleteTask(index);
   }
 
 

@@ -1,21 +1,23 @@
-import {  useRef,useEffect } from 'react';
+import {  useRef,useEffect,useContext } from 'react';
+import { TodoContext } from '../store/todo-context';
 
-export default function Modal({ open, children,onClose }) {
+export default function Modal({children}) {
+  const {modalIsOpen,cancelDelete} = useContext(TodoContext);
   const dialog = useRef();
   useEffect(()=>
     {
-      if(open)
+      if(modalIsOpen)
         dialog.current.showModal();
         else
         dialog.current.close();
     }
-    ,[open]
+    ,[modalIsOpen]
   );
   
 
   return (
-    <dialog className="modal" ref={dialog} onClose={onClose} >
-      {open ? children: null}
+    <dialog className="modal" ref={dialog} onClose={cancelDelete} >
+      {modalIsOpen ? children: null}
     </dialog>
   );
 }

@@ -1,18 +1,23 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboardList } from '@fortawesome/free-solid-svg-icons';
 import Button from './Button.jsx';
+import { TodoContext } from '../store/todo-context.jsx';
 
-export default function InputBox({onAddTask}) {
+export default function InputBox({}) {
+
+  const {addTask} = useContext(TodoContext);
+
   const [newTask,setNewTask] = useState('');
   const [error, setError] = useState('');
+
 
   function handleChange(event){
     setNewTask(event.target.value);
     setError('');
   }
   function handleButtonClick() {
-    onAddTask(newTask); 
+    addTask(newTask); 
     setNewTask(''); 
   }
 
@@ -20,7 +25,7 @@ export default function InputBox({onAddTask}) {
     const englishRegex = /^[a-zA-Z0-9\s.,!?'"-]+$/;
     
     if (englishRegex.test(newTask)) {
-      onAddTask(newTask);
+      addTask(newTask);
       setNewTask(''); 
     } else {
       setError('Please enter the task in English');

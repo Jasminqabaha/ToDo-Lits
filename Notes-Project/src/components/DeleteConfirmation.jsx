@@ -1,17 +1,19 @@
-import { useEffect } from "react";
+import { useEffect,useContext } from "react";
+import { TodoContext } from "../store/todo-context";
 
-export default function DeleteConfirmation({ onConfirm, onCancel }) {
+export default function DeleteConfirmation({}) {
+  const {cancelDelete,confirmDeleteTask} = useContext(TodoContext);
   useEffect(()=>{
     console.log("the timer seted");
     const timer = setTimeout(()=>{
-      onConfirm();
+      confirmDeleteTask();
     },3000);
 
     return ()=> {
       console.log("the timer cleared");
       clearTimeout(timer);
     };
-  },[onConfirm])
+  },[confirmDeleteTask])
 
   return (
     <div
@@ -22,13 +24,13 @@ export default function DeleteConfirmation({ onConfirm, onCancel }) {
       <p className="text-gray-600 mb-6">Do you really want to delete this?</p>
       <div id="confirmation-actions" className="flex justify-end space-x-4">
         <button
-          onClick={onCancel}
+          onClick={cancelDelete}
           className="px-4 py-2 bg-gray-300 hover:bg-gray-400 text-gray-800 rounded-md"
         >
           No
         </button>
         <button
-          onClick={onConfirm}
+          onClick={confirmDeleteTask}
           className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-md"
         >
           Yes
