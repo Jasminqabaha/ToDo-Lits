@@ -21,10 +21,10 @@ A sleek and intuitive to-do list app built with **React**, **Context API**, and 
 ## 📸 Screenshots
 
 ### ✅ Main App Screen
-![Main Screen](public/main-screen.png)
+![Main Screen](main-screen.png)
 
 ### ❌ Delete Confirmation
-![Delete Confirmation](public/delete-confirmation.png)
+![Delete Confirmation](delete-confirmation.png)
 
 ## 📦 Installation
 
