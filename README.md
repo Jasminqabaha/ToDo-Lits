@@ -18,13 +18,13 @@ A sleek and intuitive to-do list app built with **React**, **Context API**, and 
 - [Context API](https://reactjs.org/docs/context.html) for state management
 - [Tailwind CSS](https://tailwindcss.com/) for styling
 
-## 🧪 Screenshots
+## 📸 Screenshots
 
-### Input & Task List
-![To Do App - Main](./public/assets/main-screen.png)
+### ✅ Main App Screen
+![Main Screen](src/assets/main-screen.png)
 
-### Delete Confirmation
-![To Do App - Confirm Delete](./public/assets/delete-confirmation.png)
+### ❌ Delete Confirmation
+![Delete Confirmation](src/assets/delete-confirmation.png)
 
 ## 📦 Installation
 
